@@ -15,5 +15,11 @@ print "2. build and publish"
 
 gitbook build
 cp -r _book/* .
+git add .
 git commit -a -m "Publish Book"
 git push -f -u origin master
+
+print "3. goback and clean up"
+
+git checkout master
+git clean -df
