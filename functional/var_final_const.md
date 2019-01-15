@@ -1,4 +1,4 @@
-## Dart对不可变性的支持
+## Dart对不可变变量的支持
 
 在dart中使用变量的一般方式是
 ```dart
@@ -122,3 +122,18 @@ const >> final >> var
 ```
 remember：**编程的核心是控制复杂度**
 
+## Immutable 数据结构
+
+上面讨论的不太恰当的一点是，immutable有另外一层含义，指的是数据结构/value的不可变性，而不仅仅是变量的不可变性。
+
+例如clojure中的数据结构默认都是immutable的，js中也有 immutable.js来辅助react达到更高的渲染效率。
+
+immutable data又叫做 Persistent Data Structure(翻译过来是持久化数据结构，不过并不是字面意思，不会持久化到磁盘上)
+
+和const value不同的是，immutable数据结构并不限制于编译期间可知。
+
+不过immutable的抽象并不是没有代价的，最简单的immutable，可以做成类似java CopyOnWriteArrayList的方式，每当改变的时候，就复制一份，但是劣势很明显，会消耗大量的内存，这限制了使用场景。
+
+因此一般的immutable数据结构实现，会使用一些技巧，在保证多线程安全（不需要锁）的情况下，尽量复用内存。这也带来了一定的复杂度，拿list来说，标准数据结构书籍上的时间复杂度和空间复杂度都不再适用。
+
+不过关于持久化数据结构的讨论超出了本文的范畴，这里有[一篇不错的文章](https://jlongster.com/Using-Immutable-Data-Structures-in-JavaScript)，讨论了关于在javascipt中使用持久化数据结构。
