@@ -1,8 +1,13 @@
-import 'package:meta/meta.dart';
-
 main() {
   demo(inc(10));
   outer();
+
+  final myPrint = print;
+  myPrint("hello world");
+
+  final add = (a, b) => a + b;
+  final myAdd = add;
+  print(myAdd(2, 3));
 
   func_with_named_param(name: "小明", age: 25);
   func_with_named_param(name: "小明");

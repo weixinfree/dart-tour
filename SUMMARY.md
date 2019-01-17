@@ -5,13 +5,14 @@
     * [一等函数和高阶函数](./functional/first_class_function.md)
     * [lambda 表达式](./functional/lambda.md)
     * [callable class](./functional/callable_object.md)
-    * [语句和表达式](./functional/statement_expression.md)
     * [内置数据结构](./functional/builtin_data_structure.md)
     * [词法作用域和作用域链](./functional/lexical_scope.md)
     * [闭包和环境](./functional/closure.md)
     * [iterator](./functional/iterator.md)
     * [generator](./functional/generator.md)
 * [面向对象](./oop/README.md)
+    * [method missing 黑魔法](./oop/methodMissing.md)
+    * [Property](./oop/property.md)
     * [class](./oop/class.md)
     * [interface](./oop/interface.md)
     * [mixin](./oop/mixin.md)
@@ -33,6 +34,9 @@
 * [后记](./others/README.md)
     * [metadata](./others/metadata.md)
     * [typedefs](./others/typedefs.md)
+    * [独特的可见性规则](./others/visibility.md)
+    * [库的使用](./others/lib.md)
+    * [null 处理](./others/null.md)
 
   
 
