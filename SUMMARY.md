@@ -5,7 +5,6 @@
     * [一等函数和高阶函数](./functional/first_class_function.md)
     * [lambda 表达式](./functional/lambda.md)
     * [callable class](./functional/callable_object.md)
-    * [内置数据结构](./functional/builtin_data_structure.md)
     * [词法作用域和作用域链](./functional/lexical_scope.md)
     * [闭包和环境](./functional/closure.md)
     * [iterator](./functional/iterator.md)
