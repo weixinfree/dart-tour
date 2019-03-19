@@ -3,6 +3,15 @@ void main() {
   _final();
   _const();
   _const2();
+
+  _demo();
+}
+
+_demo() {
+  dynamic a = 123;
+  String b = a;
+  print(b);
+  print(b.runtimeType);
 }
 
 _final() {
