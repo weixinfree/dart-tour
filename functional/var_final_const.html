@@ -1,0 +1,842 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>不可变性 · dart语言特性巡览</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="王伟">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="first_class_function.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Dart语言简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    函数式编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="var_final_const.html">
+            
+                <a href="var_final_const.html">
+            
+                    
+                    不可变性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="first_class_function.html">
+            
+                <a href="first_class_function.html">
+            
+                    
+                    一等函数和高阶函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="lambda.html">
+            
+                <a href="lambda.html">
+            
+                    
+                    lambda 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="callable_object.html">
+            
+                <a href="callable_object.html">
+            
+                    
+                    callable class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="lexical_scope.html">
+            
+                <a href="lexical_scope.html">
+            
+                    
+                    词法作用域,作用域链和闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="iterator.html">
+            
+                <a href="iterator.html">
+            
+                    
+                    iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="generator.html">
+            
+                <a href="generator.html">
+            
+                    
+                    generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../oop/">
+            
+                <a href="../oop/">
+            
+                    
+                    面向对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../oop/methodMissing.html">
+            
+                <a href="../oop/methodMissing.html">
+            
+                    
+                    method missing 黑魔法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../oop/property.html">
+            
+                <a href="../oop/property.html">
+            
+                    
+                    Property
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../oop/class.html">
+            
+                <a href="../oop/class.html">
+            
+                    
+                    class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../oop/interface.html">
+            
+                <a href="../oop/interface.html">
+            
+                    
+                    interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../oop/mixin.html">
+            
+                <a href="../oop/mixin.html">
+            
+                    
+                    mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../oop/abstract_class.html">
+            
+                <a href="../oop/abstract_class.html">
+            
+                    
+                    抽象类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../oop/dynamic.html">
+            
+                <a href="../oop/dynamic.html">
+            
+                    
+                    dynamic类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../oop/generic.html">
+            
+                <a href="../oop/generic.html">
+            
+                    
+                    范型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../oop/constructor.html">
+            
+                <a href="../oop/constructor.html">
+            
+                    
+                    复杂的构造器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../async/">
+            
+                <a href="../async/">
+            
+                    
+                    异步编程和并发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../async/stream.html">
+            
+                <a href="../async/stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../async/async_await.html">
+            
+                <a href="../async/async_await.html">
+            
+                    
+                    async/sync 语法糖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../async/event_loop.html">
+            
+                <a href="../async/event_loop.html">
+            
+                    
+                    eventloop 和 GUI编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../async/isolates.html">
+            
+                <a href="../async/isolates.html">
+            
+                    
+                    actor style 并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../engineering/">
+            
+                <a href="../engineering/">
+            
+                    
+                    工程实践
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../engineering/fmt.html">
+            
+                <a href="../engineering/fmt.html">
+            
+                    
+                    fmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../engineering/pub.html">
+            
+                <a href="../engineering/pub.html">
+            
+                    
+                    依赖管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../engineering/style.html">
+            
+                <a href="../engineering/style.html">
+            
+                    
+                    官方style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../engineering/test.html">
+            
+                <a href="../engineering/test.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../engineering/cli.html">
+            
+                <a href="../engineering/cli.html">
+            
+                    
+                    缺少的cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../others/">
+            
+                <a href="../others/">
+            
+                    
+                    后记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../others/metadata.html">
+            
+                <a href="../others/metadata.html">
+            
+                    
+                    metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../others/typedefs.html">
+            
+                <a href="../others/typedefs.html">
+            
+                    
+                    typedefs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../others/visibility.html">
+            
+                <a href="../others/visibility.html">
+            
+                    
+                    独特的可见性规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../others/lib.html">
+            
+                <a href="../others/lib.html">
+            
+                    
+                    库的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../others/null.html">
+            
+                <a href="../others/null.html">
+            
+                    
+                    null 处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >不可变性</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="dart&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#x7684;&#x652F;&#x6301;">Dart&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#x7684;&#x652F;&#x6301;</h2>
+<p>&#x5728;dart&#x4E2D;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x7684;&#x4E00;&#x822C;&#x65B9;&#x5F0F;&#x662F;</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&quot;xiaoming&quot;</span>;
+</code></pre>
+<p>&#x6B64;&#x65F6;&#x7684;dart&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#xFF0C;&#x540E;&#x7EED;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&quot;xiaoming&quot;</span>;
+<span class="hljs-keyword">assert</span>(name == <span class="hljs-string">&quot;xiaoming&quot;</span>);
+
+name = <span class="hljs-string">&quot;xh&quot;</span>;
+<span class="hljs-keyword">assert</span>(name == <span class="hljs-string">&quot;xh&quot;</span>);
+</code></pre>
+<p>dart &#x4E5F;&#x652F;&#x6301;&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;, <code>final</code> &#x548C; <code>const</code></p>
+<pre><code class="lang-dart"><span class="hljs-keyword">final</span> name = <span class="hljs-string">&quot;xm&quot;</span>;
+<span class="hljs-keyword">assert</span>(name == <span class="hljs-string">&quot;xm&quot;</span>);
+name = <span class="hljs-string">&quot;xh&quot;</span>; <span class="hljs-comment">// syntax error&#xFF01;&#xFF01;&#xFF01;</span>
+</code></pre>
+<blockquote>
+<p>&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#x542C;&#x8D77;&#x6765;&#x6BD4;&#x8F83;&#x62D7;&#x53E3;&#xFF0C;&#x53EB;&#x505A;&#x4E0D;&#x53EF;&#x53D8;&#x7ED1;&#x5B9A;&#x4F1A;&#x4F1A;&#x597D;&#x4E00;&#x4E9B;&#xFF0C;&#x4E0D;&#x8FC7;&#x597D;&#x50CF;&#x5927;&#x5BB6;&#x90FD;&#x8FD9;&#x4E48;&#x53EB;&#xFF0C;&#x5728;&#x4E0D;&#x5F15;&#x8D77;&#x6B67;&#x4E49;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0B;&#x6587;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;</p>
+</blockquote>
+<p>&#x540C;&#x6837;&#x7684;<code>const</code>&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x58F0;&#x660E;&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">const</span> name = <span class="hljs-string">&quot;xm&quot;</span>;
+name = <span class="hljs-string">&quot;xh&quot;</span>; <span class="hljs-comment">// syntax error&#xFF01;&#xFF01;&#xFF01;</span>
+</code></pre>
+<p>&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF0C;&#x65E2;&#x7136;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x58F0;&#x660E;&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#xFF0C;dart&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x8BBE;&#x8BA1;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#x5462;&#xFF1F;&#x611F;&#x89C9;&#x6709;&#x70B9;&#x591A;&#x6B64;&#x4E00;&#x4E3E;&#x3002;&#x5176;&#x5B9E;&#x5728;dart&#x4E2D;<code>final</code>&#x548C; <code>const</code>&#x5DEE;&#x522B;&#x8FD8;&#x662F;&#x633A;&#x5927;&#x7684;&#x3002;</p>
+<h2 id="const-&#x548C;-final&#x7684;&#x533A;&#x522B;"><code>const</code> &#x548C; <code>final</code>&#x7684;&#x533A;&#x522B;</h2>
+<p><code>final</code> &#x4EC5;&#x4EC5;&#x8868;&#x660E;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x53EA;&#x80FD;&#x8D4B;&#x503C;&#x4E00;&#x6B21;&#x3002;<code>const</code>&#x7684;&#x8BED;&#x4E49;&#x5219;&#x8981;&#x5F3A;&#x4E0A;&#x5F88;&#x591A;&#xFF0C;&#x9664;&#x4E86;&#x4EC5;&#x80FD;&#x8D4B;&#x503C;&#x4E00;&#x6B21;&#x7684;&#x8981;&#x6C42;&#x5916;&#xFF0C;const &#x53D8;&#x91CF;&#x7684;&#x503C;&#x8FD8;&#x5FC5;&#x987B;&#x8981;&#x662F;&#x7F16;&#x8BD1;&#x671F;&#x53EF;&#x786E;&#x5B9A;&#x7684;&#x3002;</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">const</span> name = <span class="hljs-string">&quot;xm&quot;</span>;
+<span class="hljs-keyword">const</span> age = <span class="hljs-string">&quot;10&quot;</span>;
+<span class="hljs-keyword">const</span> xm = name + <span class="hljs-string">&apos;-&apos;</span> + age;
+
+<span class="hljs-keyword">assert</span>(xm == <span class="hljs-string">&quot;xm-10&quot;</span>);
+</code></pre>
+<ol>
+<li>literal &#x503C;&#x662F;&#x7F16;&#x8BD1;&#x671F;&#x786E;&#x5B9A;&#x7684;</li>
+<li>const &#x503C;&#x4E4B;&#x95F4;&#x7684;&#x7B80;&#x5355;&#x8FD0;&#x7B97;&#x4E5F;&#x662F;&#x7F16;&#x8BD1;&#x671F;&#x95F4;&#x53EF;&#x786E;&#x5B9A;&#x7684;</li>
+</ol>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x5728;dart&#x4E2D;<code>const</code>&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4FEE;&#x9970;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">const</span> aNum = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">const</span> list1 = <span class="hljs-keyword">const</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, aNum];
+<span class="hljs-keyword">const</span> list2 = <span class="hljs-keyword">const</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, aNum];
+<span class="hljs-keyword">assert</span>(identical(list1, list2));
+</code></pre>
+<p>&#x53EF;&#x89C1;&#xFF0C;dart&#x4FEE;&#x9970;&#x503C;&#x7684;&#x4F5C;&#x7528;&#x662F;&#xFF1A;&#x4E24;&#x4E2A;&#x503C;&#x662F;&#x540C;&#x4E00;&#x4EFD;&#xFF0C;&#x4E0D;&#x4EC5;&#x4EC5;<code>equal</code>&#xFF0C;&#x8FD8;<code>identical</code></p>
+<p>const&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x6709;&#x7528;&#x7684;&#x7279;&#x6027;&#xFF1A;&#x5728;const&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#xFF0C;const value&#x7684;const&#x5173;&#x952E;&#x5B57;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x7B80;&#x5316;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">const</span> aNum = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">const</span> list1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, aNum];
+<span class="hljs-keyword">const</span> list2 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, aNum];
+<span class="hljs-keyword">assert</span>(identical(list1, list2));
+</code></pre>
+<p>&#x540C;&#x6837;&#x7684;&#x53EF;&#x4EE5;&#x6784;&#x9020;&#x66F4;&#x590D;&#x6742;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-dart">  <span class="hljs-keyword">const</span> v = {
+    <span class="hljs-string">&quot;age&quot;</span>: aNum,
+    <span class="hljs-string">&quot;names&quot;</span>: [<span class="hljs-string">&quot;xm&quot;</span>, <span class="hljs-string">&quot;xh&quot;</span>, <span class="hljs-string">&quot;xg&quot;</span>]
+  };
+
+  <span class="hljs-keyword">assert</span>(v[<span class="hljs-string">&apos;age&apos;</span>] == <span class="hljs-number">10</span>);
+  <span class="hljs-keyword">assert</span>(identical(v[<span class="hljs-string">&apos;names&apos;</span>], <span class="hljs-keyword">const</span> [<span class="hljs-string">&quot;xm&quot;</span>, <span class="hljs-string">&quot;xh&quot;</span>, <span class="hljs-string">&quot;xg&quot;</span>]));
+</code></pre>
+<p><code>final</code>&#x548C;<code>const</code>&#x7279;&#x6027;&#x603B;&#x7ED3;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>feature</th>
+<th>final</th>
+<th>const</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x53EA;&#x80FD;&#x8D4B;&#x503C;&#x4E00;&#x6B21;</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>&#x7F16;&#x8BD1;&#x671F;&#x9700;&#x8981;&#x786E;&#x5B9A;&#x53D8;&#x91CF;&#x503C;</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>&#x53EF;&#x4EE5;&#x4FEE;&#x9970;&#x503C;</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>&#x4E0A;&#x4E0B;&#x6587;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x5230;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x53F3;&#x4FA7;</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x5176;&#x5B83;&#x8BED;&#x8A00;&#x7684;&#x8BBE;&#x8BA1;">&#x5176;&#x5B83;&#x8BED;&#x8A00;&#x7684;&#x8BBE;&#x8BA1;</h2>
+<ul>
+<li>Rust &#x4E2D;&#x4F7F;&#x7528;<code>let</code>&#x8FDB;&#x884C;&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E0D;&#x53EF;&#x53D8;&#xFF0C;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#x8981;&#x4F7F;&#x7528;<code>let mut</code>&#x3002;&#x53EF;&#x89C1;Rust&#x5176;&#x5B9E;&#x662F;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#x7684;&#xFF0C;&#x5BF9;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#x7684;&#x4F7F;&#x7528;&#x589E;&#x52A0;&#x4E86;&#x8BED;&#x6CD5;&#x8D1F;&#x62C5;</li>
+<li>java &#x4E2D;&#x9700;&#x8981;&#x660E;&#x786E;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;<code>final</code>&#x4FEE;&#x9970;&#x7B26;&#xFF0C;&#x4F7F;&#x53D8;&#x91CF;&#x4E0D;&#x53EF;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#xFF0C;<code>static final</code> &#x4FEE;&#x9970;&#x7684;&#x53D8;&#x91CF;&#x5219;&#x548C;<code>const</code>&#x6709;&#x5F02;&#x66F2;&#x540C;&#x5DE5;&#x4E4B;&#x5999;&#x3002;&#x4E00;&#x5982;&#x65E2;&#x5F80;&#xFF0C;java &#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x6027;&#x7684;&#x652F;&#x6301;&#x4E5F;&#x76F8;&#x5BF9;&#x7E41;&#x7410;&#x4E00;&#x4E9B;&#x3002;</li>
+<li>go &#x91CC;&#x9762;&#x540C;&#x6837;&#x6709;<code>var</code> &#x548C; <code>const</code>&#xFF0C;&#x548C; dart&#x7684;<code>var</code>&#x548C;<code>const</code>&#x8BED;&#x4E49;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x9650;&#x5236;&#x8981;&#x591A;&#x7684;&#x591A;&#xFF0C;&#x4E0D;&#x652F;&#x6301;<code>const value</code>&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x590D;&#x6742;&#x7C7B;&#x578B;</li>
+<li>scala &#x4E2D;&#x4F7F;&#x7528;<code>var</code>&#x4F5C;&#x4E3A;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#xFF0C;<code>val</code>&#x4F5C;&#x4E3A;&#x5E38;&#x91CF;</li>
+<li>&#x6700;&#x65B0;&#x7684;ES6&#x4E2D;&#xFF0C;&#x4E5F;&#x6709;&#x4E86; <code>let</code> &#x548C; <code>const</code>&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5176;&#x4E2D;let&#x7684;&#x8BED;&#x4E49;&#x548C;dart&#x7684;<code>var</code>&#x7C7B;&#x4F3C;(js&#x4E2D;&#x7684;<code>var</code>&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6076;&#x9B54;&#xFF0C;&#x5404;&#x79CD;&#x624B;&#x6BB5;&#x8BF1;&#x5BFC;&#x4EBA;&#x72AF;&#x9519;)</li>
+</ul>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x4E0D;&#x53EF;&#x53D8;&#x6027;&#xFF1F;">&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x4E0D;&#x53EF;&#x53D8;&#x6027;&#xFF1F;</h2>
+<h5 id="&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x53D8;&#x5316;&#x6700;&#x5C11;&#xFF0C;&#x601D;&#x7EF4;&#x8D1F;&#x62C5;&#x6700;&#x5C0F;">&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x53D8;&#x5316;&#x6700;&#x5C11;&#xFF0C;&#x601D;&#x7EF4;&#x8D1F;&#x62C5;&#x6700;&#x5C0F;</h5>
+<p>&#x5728;&#x5DE5;&#x4E1A;&#x754C;&#x6709;&#x8FC7;&#x4E00;&#x5B9A;coding&#x7ECF;&#x9A8C;&#x7684;&#x540C;&#x5B66;&#xFF0C;&#x5E94;&#x8BE5;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x4F53;&#x4F1A;&#xFF0C;&#x51E0;&#x4E4E;&#x4E0D;&#x5B58;&#x5728;&#x4EC0;&#x4E48;&#x505A;&#x4E0D;&#x5230;&#x7684;&#xFF0C;google + github&#x5927;&#x6982;&#x7387;&#x53EF;&#x4EE5;&#x641E;&#x5B9A;&#x4E00;&#x5207;&#x3002;&#x53EA;&#x662F;&#x5199;&#x51FA;&#x6765;&#x7684;&#x5546;&#x4E1A;&#x5316;&#x4EE3;&#x7801;&#xFF0C;&#x5230;&#x5904;&#x90FD;&#x662F;&#x4E00;&#x5806;shit&#x3002;</p>
+<p>&#x600E;&#x4E48;&#x505A;&#x590D;&#x6742;&#x5EA6;&#x6700;&#x4F4E;&#xFF0C;&#x6E05;&#x6670;&#x5EA6;&#x66F4;&#x9AD8;&#xFF0C;&#x7EF4;&#x62A4;&#x6027;&#x66F4;&#x597D;&#x3002;&#x624D;&#x662F;&#x5546;&#x4E1A;&#x5316;&#x4EE3;&#x7801;&#x4E00;&#x76F4;&#x8FFD;&#x6C42;&#x7684;&#xFF08;&#x8BF4;&#x660E;&#x4E00;&#x76F4;&#x6CA1;&#x505A;&#x5230;&#xFF09;&#x3002;</p>
+<p>&#x72B6;&#x6001;&#x7684;&#x53D8;&#x5316;&#x5C31;&#x662F;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7684;&#x52A8;&#x6001;&#x590D;&#x6742;&#x5EA6;&#x3002;&#x4E0D;&#x53EF;&#x53D8;&#x5C31;&#x5728;&#x81F4;&#x529B;&#x4E8E;&#x964D;&#x4F4E;&#x8FD9;&#x5757;&#x590D;&#x6742;&#x5EA6;&#x3002;&#x603B;&#x662F;&#x4F18;&#x5148;&#x4F7F;&#x7528;&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x4E60;&#x60EF;</p>
+<h5 id="&#x4E0D;&#x53EF;&#x53D8;&#x5929;&#x7136;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;">&#x4E0D;&#x53EF;&#x53D8;&#x5929;&#x7136;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;</h5>
+<p>&#x4E0D;&#x53EF;&#x53D8;&#x8FD8;&#x6709;&#x8FD8;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x5927;&#x7684;&#x597D;&#x5904;&#x662F;&#xFF0C;&#x5929;&#x7136;&#x662F;&#x591A;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3002;&#x5728;&#x591A;&#x6838;&#x5FC3;&#x5DF2;&#x7ECF;&#x5982;&#x6B64;&#x666E;&#x904D;&#x7684;&#x4ECA;&#x5929;&#xFF0C;&#x8FD9;&#x53E5;&#x8BDD;&#x7684;&#x610F;&#x4E49;&#x8FDC;&#x6BD4;&#x4F60;&#x7684;&#x60F3;&#x8C61;&#x66F4;&#x6709;&#x5185;&#x6DB5;&#x3002;</p>
+<p>&#x6BCF;&#x4E00;&#x4E2A;&#x8F7B;&#x89C6;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x4EBA;&#xFF0C;&#x90FD;&#x4F1A;&#x88AB;&#x591A;&#x7EBF;&#x7A0B;&#x7838;&#x5230;&#x811A;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x6761;&#x8BA8;&#x8BBA;&#x5BF9;dart&#x6765;&#x8BF4;&#x5C31;&#x662F;&#x5728;&#x626F;&#x6DE1;&#xFF0C;&#x56E0;&#x4E3A;dart&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x8BED;&#x8A00;&#x3002;&#x5E76;&#x53D1;&#x7684;&#x6A21;&#x578B;&#x4E5F;&#x662F;&#x57FA;&#x4E8E;&#x901A;&#x4FE1;&#x7684;actor&#x6A21;&#x578B;&#xFF0C;<code>isolate</code>&#x4E4B;&#x95F4;&#x5185;&#x5B58;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF1A;</p>
+<ol>
+<li>dart&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x8BED;&#x8A00;&#xFF0C;&#x5982;&#x4F55;&#x9002;&#x5E94;GUI&#x7F16;&#x7A0B;&#x5462;&#xFF1F;
+&#x4F8B;&#x5982;: &#x4E00;&#x4E2A;&#x4E3E;&#x4E16;&#x516C;&#x8BA4;&#x7684;&#x7406;&#x5FF5;&#x662F;&#xFF1A;&#x4E0D;&#x80FD;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x8BFB;&#x53D6;&#x78C1;&#x76D8;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x9020;&#x6210;&#x5361;&#x987F;&#x4E22;&#x5E27;&#x3002;</li>
+<li>actor&#x6A21;&#x578B;&#x662F;&#x4EC0;&#x4E48;&#x9B3C;&#xFF1F;</li>
+</ol>
+<p>&#x8BF7;&#x770B;&#x540E;&#x9762;&#x7684;<a href="">&#x5F02;&#x6B65;&#x548C;&#x5E76;&#x53D1;&#x7F16;&#x7A0B;</a>&#x7AE0;&#x8282;</p>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>dart&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x6027;&#x7684;&#x652F;&#x6301;&#x662F;&#x5341;&#x5206;&#x5B8C;&#x5584;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x652F;&#x6301;<code>const value</code>&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x90A3;&#x4E48;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x867D;&#x7136;&#x5E26;&#x6765;&#x4E86;&#x4E00;&#x4E9B;&#x590D;&#x6742;&#x6027;&#xFF0C;&#x4F46;&#x662F;&#x603B;&#x4F53;&#x4E0A;&#x6765;&#x8BF4;&#x4E5F;&#x7B97;&#x503C;&#x5F97;&#x3002;&#x4E0D;&#x8FC7;&#x770B;&#x8D77;&#x6765;&#x5B98;&#x65B9;&#x5E76;&#x6CA1;&#x6709;&#x523B;&#x610F;&#x7684;&#x5F3A;&#x8C03;&#x4F18;&#x5148;&#x4F7F;&#x7528;&#x4E0D;&#x53EF;&#x53D8;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x70B9;&#x4E0A;&#x4E0D;&#x5982;rust&#x5F7B;&#x5E95;&#x3002;</p>
+<p>&#x8BF4;&#x4E86;&#x8FD9;&#x4E48;&#x591A;&#xFF0C;&#x5728;dart&#x4E2D;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x5462;&#xFF1F;<strong>&#x63A8;&#x8350;&#x5982;&#x4E0B;&#xFF1A;</strong></p>
+<pre><code class="lang-dart"><span class="hljs-keyword">const</span> &gt;&gt; <span class="hljs-keyword">final</span> &gt;&gt; <span class="hljs-keyword">var</span>
+</code></pre>
+<p>remember&#xFF1A;<strong>&#x7F16;&#x7A0B;&#x7684;&#x6838;&#x5FC3;&#x662F;&#x63A7;&#x5236;&#x590D;&#x6742;&#x5EA6;</strong></p>
+<h2 id="immutable-&#x6570;&#x636E;&#x7ED3;&#x6784;">Immutable &#x6570;&#x636E;&#x7ED3;&#x6784;</h2>
+<p>&#x4E0A;&#x9762;&#x8BA8;&#x8BBA;&#x7684;&#x4E0D;&#x592A;&#x6070;&#x5F53;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;immutable&#x6709;&#x53E6;&#x5916;&#x4E00;&#x5C42;&#x542B;&#x4E49;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x6570;&#x636E;&#x7ED3;&#x6784;/value&#x7684;&#x4E0D;&#x53EF;&#x53D8;&#x6027;&#xFF0C;&#x800C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x53D8;&#x91CF;&#x7684;&#x4E0D;&#x53EF;&#x53D8;&#x6027;&#x3002;</p>
+<p>&#x4F8B;&#x5982;clojure&#x4E2D;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x9ED8;&#x8BA4;&#x90FD;&#x662F;immutable&#x7684;&#xFF0C;js&#x4E2D;&#x4E5F;&#x6709; immutable.js&#x6765;&#x8F85;&#x52A9;react&#x8FBE;&#x5230;&#x66F4;&#x9AD8;&#x7684;&#x6E32;&#x67D3;&#x6548;&#x7387;&#x3002;</p>
+<p>immutable data&#x53C8;&#x53EB;&#x505A; Persistent Data Structure(&#x7FFB;&#x8BD1;&#x8FC7;&#x6765;&#x662F;&#x6301;&#x4E45;&#x5316;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x4E0D;&#x8FC7;&#x5E76;&#x4E0D;&#x662F;&#x5B57;&#x9762;&#x610F;&#x601D;&#xFF0C;&#x4E0D;&#x4F1A;&#x6301;&#x4E45;&#x5316;&#x5230;&#x78C1;&#x76D8;&#x4E0A;)</p>
+<p>&#x548C;const value&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;immutable&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5E76;&#x4E0D;&#x9650;&#x5236;&#x4E8E;&#x7F16;&#x8BD1;&#x671F;&#x95F4;&#x53EF;&#x77E5;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;immutable&#x7684;&#x62BD;&#x8C61;&#x5E76;&#x4E0D;&#x662F;&#x6CA1;&#x6709;&#x4EE3;&#x4EF7;&#x7684;&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684;immutable&#xFF0C;&#x53EF;&#x4EE5;&#x505A;&#x6210;&#x7C7B;&#x4F3C;java CopyOnWriteArrayList&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6BCF;&#x5F53;&#x6539;&#x53D8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x590D;&#x5236;&#x4E00;&#x4EFD;&#xFF0C;&#x4F46;&#x662F;&#x52A3;&#x52BF;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x4F1A;&#x6D88;&#x8017;&#x5927;&#x91CF;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x8FD9;&#x9650;&#x5236;&#x4E86;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x4E00;&#x822C;&#x7684;immutable&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5B9E;&#x73B0;&#xFF0C;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x6280;&#x5DE7;&#xFF0C;&#x5728;&#x4FDD;&#x8BC1;&#x591A;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF08;&#x4E0D;&#x9700;&#x8981;&#x9501;&#xFF09;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5C3D;&#x91CF;&#x590D;&#x7528;&#x5185;&#x5B58;&#x3002;&#x8FD9;&#x4E5F;&#x5E26;&#x6765;&#x4E86;&#x4E00;&#x5B9A;&#x7684;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x62FF;list&#x6765;&#x8BF4;&#xFF0C;&#x6807;&#x51C6;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E66;&#x7C4D;&#x4E0A;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x548C;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x90FD;&#x4E0D;&#x518D;&#x9002;&#x7528;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x5173;&#x4E8E;&#x6301;&#x4E45;&#x5316;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x8BA8;&#x8BBA;&#x8D85;&#x51FA;&#x4E86;&#x672C;&#x6587;&#x7684;&#x8303;&#x7574;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;<a href="https://jlongster.com/Using-Immutable-Data-Structures-in-JavaScript" target="_blank">&#x4E00;&#x7BC7;&#x4E0D;&#x9519;&#x7684;&#x6587;&#x7AE0;</a>&#xFF0C;&#x8BA8;&#x8BBA;&#x4E86;&#x5173;&#x4E8E;&#x5728;javascipt&#x4E2D;&#x4F7F;&#x7528;&#x6301;&#x4E45;&#x5316;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 函数式编程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="first_class_function.html" class="navigation navigation-next " aria-label="Next page: 一等函数和高阶函数">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"不可变性","level":"1.2.1","depth":2,"next":{"title":"一等函数和高阶函数","level":"1.2.2","depth":2,"path":"functional/first_class_function.md","ref":"./functional/first_class_function.md","articles":[]},"previous":{"title":"函数式编程","level":"1.2","depth":1,"path":"functional/README.md","ref":"./functional/README.md","articles":[{"title":"不可变性","level":"1.2.1","depth":2,"path":"functional/var_final_const.md","ref":"./functional/var_final_const.md","articles":[]},{"title":"一等函数和高阶函数","level":"1.2.2","depth":2,"path":"functional/first_class_function.md","ref":"./functional/first_class_function.md","articles":[]},{"title":"lambda 表达式","level":"1.2.3","depth":2,"path":"functional/lambda.md","ref":"./functional/lambda.md","articles":[]},{"title":"callable class","level":"1.2.4","depth":2,"path":"functional/callable_object.md","ref":"./functional/callable_object.md","articles":[]},{"title":"词法作用域,作用域链和闭包","level":"1.2.5","depth":2,"path":"functional/lexical_scope.md","ref":"./functional/lexical_scope.md","articles":[]},{"title":"iterator","level":"1.2.6","depth":2,"path":"functional/iterator.md","ref":"./functional/iterator.md","articles":[]},{"title":"generator","level":"1.2.7","depth":2,"path":"functional/generator.md","ref":"./functional/generator.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"王伟","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"dart语言特性巡览","gitbook":"*"},"file":{"path":"functional/var_final_const.md","mtime":"2019-01-15T13:36:27.029Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-19T10:49:08.163Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

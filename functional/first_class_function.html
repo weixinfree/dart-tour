@@ -1,0 +1,914 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>一等函数和高阶函数 · dart语言特性巡览</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="王伟">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="lambda.html" />
+    
+    
+    <link rel="prev" href="var_final_const.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Dart语言简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    函数式编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="var_final_const.html">
+            
+                <a href="var_final_const.html">
+            
+                    
+                    不可变性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="first_class_function.html">
+            
+                <a href="first_class_function.html">
+            
+                    
+                    一等函数和高阶函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="lambda.html">
+            
+                <a href="lambda.html">
+            
+                    
+                    lambda 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="callable_object.html">
+            
+                <a href="callable_object.html">
+            
+                    
+                    callable class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="lexical_scope.html">
+            
+                <a href="lexical_scope.html">
+            
+                    
+                    词法作用域,作用域链和闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="iterator.html">
+            
+                <a href="iterator.html">
+            
+                    
+                    iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="generator.html">
+            
+                <a href="generator.html">
+            
+                    
+                    generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../oop/">
+            
+                <a href="../oop/">
+            
+                    
+                    面向对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../oop/methodMissing.html">
+            
+                <a href="../oop/methodMissing.html">
+            
+                    
+                    method missing 黑魔法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../oop/property.html">
+            
+                <a href="../oop/property.html">
+            
+                    
+                    Property
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../oop/class.html">
+            
+                <a href="../oop/class.html">
+            
+                    
+                    class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../oop/interface.html">
+            
+                <a href="../oop/interface.html">
+            
+                    
+                    interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../oop/mixin.html">
+            
+                <a href="../oop/mixin.html">
+            
+                    
+                    mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../oop/abstract_class.html">
+            
+                <a href="../oop/abstract_class.html">
+            
+                    
+                    抽象类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../oop/dynamic.html">
+            
+                <a href="../oop/dynamic.html">
+            
+                    
+                    dynamic类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../oop/generic.html">
+            
+                <a href="../oop/generic.html">
+            
+                    
+                    范型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../oop/constructor.html">
+            
+                <a href="../oop/constructor.html">
+            
+                    
+                    复杂的构造器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../async/">
+            
+                <a href="../async/">
+            
+                    
+                    异步编程和并发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../async/stream.html">
+            
+                <a href="../async/stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../async/async_await.html">
+            
+                <a href="../async/async_await.html">
+            
+                    
+                    async/sync 语法糖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../async/event_loop.html">
+            
+                <a href="../async/event_loop.html">
+            
+                    
+                    eventloop 和 GUI编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../async/isolates.html">
+            
+                <a href="../async/isolates.html">
+            
+                    
+                    actor style 并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../engineering/">
+            
+                <a href="../engineering/">
+            
+                    
+                    工程实践
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../engineering/fmt.html">
+            
+                <a href="../engineering/fmt.html">
+            
+                    
+                    fmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../engineering/pub.html">
+            
+                <a href="../engineering/pub.html">
+            
+                    
+                    依赖管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../engineering/style.html">
+            
+                <a href="../engineering/style.html">
+            
+                    
+                    官方style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../engineering/test.html">
+            
+                <a href="../engineering/test.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../engineering/cli.html">
+            
+                <a href="../engineering/cli.html">
+            
+                    
+                    缺少的cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../others/">
+            
+                <a href="../others/">
+            
+                    
+                    后记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../others/metadata.html">
+            
+                <a href="../others/metadata.html">
+            
+                    
+                    metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../others/typedefs.html">
+            
+                <a href="../others/typedefs.html">
+            
+                    
+                    typedefs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../others/visibility.html">
+            
+                <a href="../others/visibility.html">
+            
+                    
+                    独特的可见性规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../others/lib.html">
+            
+                <a href="../others/lib.html">
+            
+                    
+                    库的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../others/null.html">
+            
+                <a href="../others/null.html">
+            
+                    
+                    null 处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >一等函数和高阶函数</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h4 id="&#x51FD;&#x6570;&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;">&#x51FD;&#x6570;&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;</h4>
+<p>dart&#x4E2D;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x65B9;&#x5F0F;&#x548C;java&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<pre><code class="lang-dart"><span class="hljs-built_in">String</span> demo(<span class="hljs-built_in">int</span> value) {
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;got a num: <span class="hljs-subst">${value}</span>&quot;</span>);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;success&quot;</span>
+}
+</code></pre>
+<ul>
+<li>&#x8FD4;&#x56DE;&#x503C;&#x5728;&#x6700;&#x524D;&#x9762;</li>
+<li>&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x58F0;&#x660E;&#x5728;&#x524D;&#xFF0C;&#x5F62;&#x53C2;&#x5728;&#x540E;</li>
+<li>&#x9700;&#x8981;&#x663E;&#x5F0F;return</li>
+</ul>
+<p>&#x56E0;&#x4E3A;&#x6709;&#x7C7B;&#x578B;&#x63A8;&#x65AD;&#xFF0C;<strong>&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x7684;</strong></p>
+<pre><code class="lang-dart">inc(<span class="hljs-built_in">int</span> v) {
+  <span class="hljs-keyword">return</span> v + <span class="hljs-number">1</span>;
+}
+</code></pre>
+<p>dart&#x8FD8;<strong>&#x652F;&#x6301;&#x5D4C;&#x5957;&#x51FD;&#x6570;</strong></p>
+<pre><code class="lang-dart">outer() {
+  inner() {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;i am inner func&quot;</span>);
+  }
+
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;i am outer func&quot;</span>);
+  inner();
+}
+</code></pre>
+<p>dart&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x98CE;&#x683C;&#x76F8;&#x5BF9;old fasion&#xFF0C;&#x5F88;&#x591A;&#x76F8;&#x5BF9;&#x65B0;&#x7684;&#x8BED;&#x8A00;&#x662F;&#x53E6;&#x4E00;&#x79CD;&#x98CE;&#x683C;&#x3002;
+&#x5728;python3&#x4E2D;&#x662F;&#x8FD9;&#x6837;&#x5F0F;&#x513F;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inc</span><span class="hljs-params">(v: int)</span> -&gt; int:</span>
+    <span class="hljs-keyword">return</span> v + <span class="hljs-number">1</span>
+</code></pre>
+<p>Rust&#x4E2D;&#x662F;&#x8FD9;&#x6837;&#x5F0F;&#x513F;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">int</span></span>(v: <span class="hljs-keyword">i32</span>) -&gt; <span class="hljs-keyword">i32</span> {
+    v + <span class="hljs-number">1</span>
+}
+</code></pre>
+<p>rust&#x4E2D;&#x6BD4;&#x8F83;&#x72EC;&#x7279;&#x7684;&#x662F;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x7684;return&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x6761;&#x6267;&#x884C;&#x5230;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x5C31;&#x662F;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#x662F;&#xFF1A;&#x6700;&#x540E;&#x4E00;&#x6761;&#x6267;&#x884C;&#x5230;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x4E0D;&#x662F;&#x4E66;&#x5199;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6761;&#x8BED;&#x53E5;</p>
+</blockquote>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x4E24;&#x79CD;&#x98CE;&#x683C;&#x841D;&#x535C;&#x9752;&#x83DC;&#x5404;&#x6709;&#x6240;&#x7231;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x5927;&#x7684;&#x533A;&#x522B;&#x3002;</p>
+<h4 id="&#x547D;&#x540D;&#x53C2;&#x6570;">&#x547D;&#x540D;&#x53C2;&#x6570;</h4>
+<p>&#x8BF4;&#x5B8C;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;&#xFF0C;&#x518D;&#x7EC6;&#x8BF4;&#x4E00;&#x4E0B;&#x53C2;&#x6570;&#x3002;dart&#x7684;&#x53C2;&#x6570;&#x548C;java&#x5DEE;&#x522B;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x4E0D;&#x652F;&#x6301;java&#x4E2D;&#x7684;&#x591A;&#x6001;&#xFF0C;&#x800C;&#x662F;&#x548C;python&#x4E00;&#x81F4;&#xFF0C;&#x4F7F;&#x7528;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x548C;&#x547D;&#x540D;&#x53C2;&#x6570;&#xFF0C;&#x53EA;&#x662F;&#x8BED;&#x6CD5;&#x548C;python&#x6709;&#x70B9;&#x5DEE;&#x5F02;&#x3002;</p>
+<pre><code class="lang-dart">func_with_named_param({<span class="hljs-built_in">String</span> name, <span class="hljs-built_in">int</span> age}) {
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;<span class="hljs-subst">${name}</span> is <span class="hljs-subst">${age}</span> years old after the new year.&quot;</span>);
+}
+</code></pre>
+<p>&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x5219;&#x548C;python&#x4E00;&#x81F4;</p>
+<pre><code class="lang-dart">func_with_named_param(name: <span class="hljs-string">&quot;&#x5C0F;&#x660E;&quot;</span>, age: <span class="hljs-number">25</span>);
+</code></pre>
+<p><strong>&#x547D;&#x540D;&#x53C2;&#x6570;&#x662F;&#x53EF;&#x9009;&#x7684;</strong>&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x90FD;&#x662F;&#x5408;&#x6CD5;&#x7684;</p>
+<pre><code class="lang-dart">  func_with_named_param(name: <span class="hljs-string">&quot;&#x5C0F;&#x660E;&quot;</span>, age: <span class="hljs-number">25</span>);
+  func_with_named_param(name: <span class="hljs-string">&quot;&#x5C0F;&#x660E;&quot;</span>);
+  func_with_named_param(age: <span class="hljs-number">25</span>);
+  func_with_named_param();
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;dart&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x7EAF;&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;&#x7684;&#x53D8;&#x91CF;&#x503C;&#x90FD;&#x662F;null&#xFF0C;&#x6240;&#x4EE5;&#x6CA1;&#x6709;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x4E3A;null</p>
+</blockquote>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-sh">&#x5C0F;&#x660E; is 25 years old after the new year.
+&#x5C0F;&#x660E; is null years old after the new year.
+null is 25 years old after the new year.
+null is null years old after the new year.
+</code></pre>
+<p><strong>&#x547D;&#x540D;&#x53C2;&#x6570;&#x8FD8;&#x652F;&#x6301;&#x6DFB;&#x52A0;&#x9ED8;&#x8BA4;&#x503C;</strong></p>
+<pre><code class="lang-dart">func_with_named_param({<span class="hljs-built_in">String</span> name = <span class="hljs-string">&quot;xm&quot;</span>, <span class="hljs-built_in">int</span> age = <span class="hljs-number">0</span>}) {
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;<span class="hljs-subst">${name}</span> is <span class="hljs-subst">${age}</span> years old after the new year.&quot;</span>);
+}
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-sh">&#x5C0F;&#x660E; is 25 years old after the new year.
+&#x5C0F;&#x660E; is 0 years old after the new year.
+xm is 25 years old after the new year.
+xm is 0 years old after the new year.
+</code></pre>
+<p>&#x6709;&#x4E86;&#x547D;&#x540D;&#x53C2;&#x6570;&#xFF0C;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x76F4;&#x7EBF;&#x4E0A;&#x5347;&#xFF0C;&#x5728;java&#x4E2D;&#x4E00;&#x822C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x4E09;&#x4E2A;&#x5C31;&#x7B97;&#x662F;&#x592A;&#x591A;&#x4E86;&#xFF0C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x5C31;&#x5927;&#x6253;&#x6298;&#x6263;&#x3002;&#x4F46;&#x662F;&#x6709;&#x4E86;&#x547D;&#x540D;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E0A;&#x9650;&#x81F3;&#x5C11;&#x53EF;&#x4EE5;&#x63D0;&#x5347;&#x5230;10&#x4E2A;&#x3002;</p>
+<h4 id="&#x53EF;&#x9009;&#x53C2;&#x6570;">&#x53EF;&#x9009;&#x53C2;&#x6570;</h4>
+<p>&#x9664;&#x4E86;&#x547D;&#x540D;&#x53C2;&#x6570;&#x5916;&#xFF0C;&#x548C;python&#x7C7B;&#x4F3C;&#xFF0C;dart&#x8FD8;&#x652F;&#x6301;&#x53EF;&#x9009;&#x53C2;&#x6570;</p>
+<pre><code class="lang-dart">func_with_optional_param(<span class="hljs-built_in">String</span> required, [<span class="hljs-built_in">String</span> optional]) {
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;required: <span class="hljs-subst">${required}</span>, optional: <span class="hljs-subst">${optional}</span>&quot;</span>);
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x4E24;&#x79CD;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x90FD;&#x662F;&#x5408;&#x6CD5;&#x7684;</p>
+<pre><code class="lang-dart">func_with_optional_param(<span class="hljs-string">&quot;i am required&quot;</span>, <span class="hljs-string">&quot;i am optional&quot;</span>);
+func_with_optional_param(<span class="hljs-string">&quot;i am required&quot;</span>);
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>required: i am required, optional: i am optional
+required: i am required, optional: null
+</code></pre><p>&#x540C;&#x6837;&#x7684;&#xFF0C;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x652F;&#x6301;&#x9ED8;&#x8BA4;&#x503C;</p>
+<pre><code class="lang-dart">main() {
+  func_with_optional_param(<span class="hljs-string">&quot;i am required&quot;</span>, <span class="hljs-string">&quot;i am optional&quot;</span>);
+  func_with_optional_param(<span class="hljs-string">&quot;i am required&quot;</span>);
+}
+
+func_with_optional_param(<span class="hljs-built_in">String</span> required, [<span class="hljs-built_in">String</span> optional = <span class="hljs-string">&quot;i am default&quot;</span>]) {
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;required: <span class="hljs-subst">${required}</span>, optional: <span class="hljs-subst">${optional}</span>&quot;</span>);
+}
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-sh">required: i am required, optional: i am optional
+required: i am required, optional: i am default
+</code></pre>
+<h4 id="&#x53EF;&#x9009;&#x53C2;&#x6570;--&#x547D;&#x540D;&#x53C2;&#x6570;-vs-&#x591A;&#x6001;">&#x53EF;&#x9009;&#x53C2;&#x6570; + &#x547D;&#x540D;&#x53C2;&#x6570; vs &#x591A;&#x6001;</h4>
+<ul>
+<li>&#x5E26;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x591A;&#x6001;90%&#x4EE5;&#x4E0A;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;</li>
+<li>&#x800C;&#x4E14;&#x56E0;&#x4E3A;&#x6709;&#x4E86;&#x547D;&#x540D;&#x53C2;&#x6570;&#xFF0C;dart&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x5B9E;&#x9645;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x8981;&#x6BD4;java&#x66F4;&#x597D;&#x4E00;&#x4E9B;&#x3002;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>vs</th>
+<th style="text-align:center">&#x53EF;&#x9009;&#x53C2;&#x6570; + &#x547D;&#x540D;&#x53C2;&#x6570;</th>
+<th style="text-align:center">&#x591A;&#x6001;</th>
+<th>&#x6743;&#x91CD;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x53EF;&#x8BFB;&#x6027;</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">5</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>&#x7075;&#x6D3B;&#x6027;</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>&#x603B;&#x5206;</td>
+<td style="text-align:center">9.7 &#x270C;&#xFE0F;</td>
+<td style="text-align:center">6.5</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<p>&#x53EF;&#x89C1;&#xFF0C;dart&#x4F5C;&#x4E3A;&#x4E00;&#x95E8;&#x65B0;&#x8BED;&#x8A00;&#xFF0C;&#x5438;&#x6536;&#x4E86;java&#xFF0C;python&#xFF0C;javasript&#x5F88;&#x591A;&#x7684;&#x7ECF;&#x8FC7;&#x9A8C;&#x8BC1;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5E76;&#x4E14;&#x505A;&#x4E86;&#x76F8;&#x5E94;&#x7684;&#x4F18;&#x5316;&#xFF0C;&#x6CA1;&#x6709;&#x82B1;&#x91CC;&#x80E1;&#x54E8;&#x7684;&#x6280;&#x5DE7;&#xFF0C;&#x4F46;&#x662F;&#x5F88;&#x5B9E;&#x7528;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x6210;&#x719F;&#x7A33;&#x91CD;&#x7684;&#x597D;&#x5C11;&#x5E74;&#x3002;</p>
+<h4 id="&#x51FD;&#x6570;&#x662F;&#x4E00;&#x7B49;&#x5BF9;&#x8C61;">&#x51FD;&#x6570;&#x662F;&#x4E00;&#x7B49;&#x5BF9;&#x8C61;</h4>
+<p>&#x5728;&#x8FD1;&#x51E0;&#x5E74;&#x65B0;&#x51FA;&#x73B0;&#x7684;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x597D;&#x50CF;&#x662F;&#x6807;&#x914D;&#x3002;&#x5E94;&#x8BE5;&#x662F;&#x90FD;&#x5207;&#x5B9E;&#x611F;&#x53D7;&#x5230;&#x4E86;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#x4F7F;&#x7528;&#x5E26;&#x6765;&#x7684;&#x751F;&#x4EA7;&#x529B;&#x7684;&#x63D0;&#x5347;&#x5427;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-dart">main() {
+  <span class="hljs-keyword">final</span> li = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+  li.forEach(printItem);
+}
+
+<span class="hljs-keyword">void</span> printItem(<span class="hljs-built_in">int</span> value) {
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;get a <span class="hljs-subst">${value}</span>&quot;</span>);
+}
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-dart">main() {
+  li.sort(reverse_order);
+  <span class="hljs-built_in">print</span>(li);
+}
+
+<span class="hljs-built_in">int</span> reverse_order(<span class="hljs-built_in">int</span> lhr, <span class="hljs-built_in">int</span> rhr) {
+  <span class="hljs-keyword">return</span> rhr - lhr;
+}
+</code></pre>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-dart">main() {
+  <span class="hljs-keyword">final</span> evens = li.map((v) =&gt; v * <span class="hljs-number">2</span>).where((v) =&gt; v % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>).toList();
+  <span class="hljs-built_in">print</span>(evens);
+}
+</code></pre>
+<p>&#x6216;&#x8005;&#x66F4;&#x9A9A;&#x6C14;&#x4E00;&#x70B9;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">final</span> myPrint = <span class="hljs-built_in">print</span>;
+myPrint(<span class="hljs-string">&quot;hello world&quot;</span>);
+
+<span class="hljs-keyword">final</span> add = (a, b) =&gt; a + b;
+<span class="hljs-keyword">final</span> myAdd = add;
+<span class="hljs-built_in">print</span>(myAdd(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>));
+
+<span class="hljs-keyword">final</span> _sort = reverse_order;
+li.sort(_sort);
+<span class="hljs-built_in">print</span>(li);
+</code></pre>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x4E00;&#x7B49;&#x516C;&#x6C11;/&#x5BF9;&#x8C61;&#x4E3B;&#x8981;&#x7684;&#x7279;&#x6027;&#x4E3A;&#xFF1A;</p>
+<ol>
+<li>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x50CF;&#x666E;&#x901A;&#x7684;&#x5BF9;&#x8C61;&#x4E00;&#x6837;&#x4F5C;&#x4E3A;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;</li>
+<li>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x53E6;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF08;&#x4EE5;&#x8D77;&#x5947;&#x602A;&#x540D;&#x5B57;&#x4E3A;&#x4E50;&#x8DA3;&#x7684;&#x7A0B;&#x5E8F;&#x5458;&#x628A;&#x8FD9;&#x4E2A;&#x53EB;&#x505A;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#xFF09;</li>
+<li>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x50CF;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#x4E00;&#x6837;&#x8D4B;&#x503C;&#x7ED9;&#x53D8;&#x91CF;</li>
+</ol>
+<blockquote>
+<p>&#x51FD;&#x6570;&#x662F;&#x4E00;&#x7B49;&#x5BF9;&#x8C61;&#x7684;&#x82F1;&#x6587;&#x7248;&#x662F; Functions as first-class objects&#xFF0C;python&#x4E2D;&#x597D;&#x50CF;&#x4F7F;&#x7528;&#x7684;&#x662F; Functions as first-class citzen&#xFF0C;&#x7FFB;&#x8BD1;&#x8FC7;&#x6765;&#x662F;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x7B49;&#x516C;&#x6C11;&#x3002;</p>
+</blockquote>
+<h4 id="&#x1F3C3;&#x5F80;&#x524D;&#x518D;&#x8D70;&#x4E00;&#x6B65;">&#x1F3C3;&#x5F80;&#x524D;&#x518D;&#x8D70;&#x4E00;&#x6B65;</h4>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x4E00;&#x7B49;&#x51FD;&#x6570;&#x88AB;&#x5927;&#x5BB6;&#x666E;&#x904D;&#x8BA4;&#x53EF;&#x5462;&#xFF1F;&#x540C;&#x4E5D;&#x5E74;&#xFF0C;&#x6C5D;&#x4F55;&#x79C0;&#xFF1F;&#x6211;&#x8BA4;&#x4E3A;&#x4E3B;&#x8981;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#xFF1A;</p>
+<p><strong>&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x5951;&#x5408;&#x4E86;&#x673A;&#x5236;&#x7B56;&#x7565;&#x5206;&#x79BB;&#x7684;&#x601D;&#x60F3;</strong></p>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#x89C1;&#x5230;&#x673A;&#x5236;&#x548C;&#x7B56;&#x7565;&#x5206;&#x6790;&#x7684;&#x601D;&#x60F3;&#x662F;&#x5728;&#x300A;Unix&#x7F16;&#x7A0B;&#x827A;&#x672F;&#x300B;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x7EDD;&#x4F73;&#x7684;&#x4F8B;&#x5B50;&#x662F;Unix/Linux&#x7684;IO&#x62BD;&#x8C61;&#xFF0C;&#x7CFB;&#x7EDF;&#x63D0;&#x4F9B;&#x4E86;&#x5BF9;&#x5B57;&#x8282;&#x6D41;&#x8BFB;&#x5199;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x8BFB;&#x5199;&#x7531;&#x5404;&#x4E2A;&#x786C;&#x4EF6;/&#x8F6F;&#x4EF6;&#x548C;&#x9A71;&#x52A8;&#x6765;&#x5B8C;&#x6210;&#x3002;&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#xFF0C;&#x78C1;&#x76D8;&#x8BFB;&#x5199;&#xFF0C;&#x6253;&#x5370;&#x673A;&#xFF0C;&#x663E;&#x793A;&#x8BBE;&#x5907;&#x7B49;&#x7B49;&#x90FD;&#x53EF;&#x4EE5;&#x5957;&#x5728;&#x8FD9;&#x4E2A;&#x4F53;&#x7CFB;&#x4E0B;&#x3002;
+
+&#x53E6;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x597D;&#x7684;&#x4F8B;&#x5B50;&#x662F;&#x6392;&#x5E8F;&#xFF1A;&#x5404;&#x4E2A;&#x8BED;&#x8A00;&#x7684;&#x63D0;&#x4F9B;&#x7684;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#x51E0;&#x4E4E;&#x90FD;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x51FD;&#x6570;/&#x51FD;&#x6570;&#x6307;&#x9488;/&#x65B9;&#x6CD5;&#x63A5;&#x53E3;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;java&#x7684;Comparator&#xFF09;&#x6765;&#x5B9E;&#x73B0;&#x4E30;&#x5BCC;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x6392;&#x5E8F;&#xFF0C;&#x800C;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#x53EA;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x6392;&#x5E8F;&#x7684;&#x673A;&#x5236;&#x3002;</p>
+<p>&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E0A;&#xFF0C;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4E5F;&#x975E;&#x5E38;&#x5951;&#x5408;&#x673A;&#x5236;&#x548C;&#x7B56;&#x7565;&#x5206;&#x79BB;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;/&#x7C7B;&#x4F5C;&#x4E3A;&#x673A;&#x5236;&#x5B9E;&#x73B0;&#x4E3B;&#x4F53;&#xFF0C;&#x7B56;&#x7565;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x6216;&#x8005;&#x5B50;&#x7C7B;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;View &#x548C; TextView&#xFF09;&#x6765;&#x81EA;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#x3002;&#x56E0;&#x6B64;&#x5F97;&#x4EE5;&#x4EAB;&#x53D7;&#x5230;&#x7EDF;&#x4E00;&#x7684;&#x673A;&#x5236;&#x5E26;&#x6765;&#x7684;&#x4F18;&#x52BF;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x8FD8;&#x80FD;&#x8FDB;&#x884C;&#x4E30;&#x5BCC;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x3002;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x662F;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x673A;&#x5236;&#x548C;&#x7B56;&#x7565;&#x5206;&#x79BB;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x601D;&#x60F3;&#x5462;&#xFF1F;&#x6211;&#x7684;&#x7406;&#x89E3;&#x5982;&#x4E0B;&#xFF1A;&#x5728;&#x673A;&#x5236;&#x7B56;&#x7565;&#x5206;&#x79BB;&#x4E2D;&#xFF0C;&#x673A;&#x5236;&#x6293;&#x4F4F;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x4E3B;&#x8981;&#x77DB;&#x76FE;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x4E3B;&#x5E72;&#x95EE;&#x9898;&#xFF0C;&#x7B56;&#x7565;&#x6765;&#x6EE1;&#x8DB3;&#x666E;&#x904D;&#x5B58;&#x5728;&#x7684;&#x5B9A;&#x5236;&#x5316;&#x9700;&#x6C42;&#xFF08;&#x6B21;&#x8981;&#x77DB;&#x76FE;&#xFF09;&#x3002;<strong>&#x4E00;&#x4E2A;&#x4E3B;&#x6B21;&#x77DB;&#x76FE;&#x77DB;&#x76FE;&#x5206;&#x660E;&#x7684;&#x7CFB;&#x7EDF;&#x548C;&#x673A;&#x5236;&#x548C;&#x7B56;&#x7565;&#x5206;&#x79BB;&#x7684;&#x601D;&#x60F3;&#x7684;&#x5951;&#x5408;&#x6027;&#x662F;&#x975E;&#x5E38;&#x9AD8;&#x7684;&#x3002;</strong></p>
+<p>&#x56DE;&#x5230;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#xFF0C;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x62FF;&#x6392;&#x5E8F;&#x4E3A;&#x4F8B;&#x5B50;&#xFF1A;&#x6392;&#x5E8F;&#x673A;&#x5236;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x6392;&#x5E8F;&#x7CFB;&#x7EDF;&#x7684;&#x4E3B;&#x8981;&#x77DB;&#x76FE;&#xFF0C;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x9700;&#x6C42;&#x662F;&#x6B21;&#x8981;&#x77DB;&#x76FE;&#x3002;&#x4E3B;&#x8981;&#x77DB;&#x76FE;&#x7531;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#x89E3;&#x51B3;&#xFF0C;&#x6B21;&#x8981;&#x77DB;&#x76FE;&#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x6765;&#x6EE1;&#x8DB3;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="var_final_const.html" class="navigation navigation-prev " aria-label="Previous page: 不可变性">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="lambda.html" class="navigation navigation-next " aria-label="Next page: lambda 表达式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"一等函数和高阶函数","level":"1.2.2","depth":2,"next":{"title":"lambda 表达式","level":"1.2.3","depth":2,"path":"functional/lambda.md","ref":"./functional/lambda.md","articles":[]},"previous":{"title":"不可变性","level":"1.2.1","depth":2,"path":"functional/var_final_const.md","ref":"./functional/var_final_const.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"王伟","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"dart语言特性巡览","gitbook":"*"},"file":{"path":"functional/first_class_function.md","mtime":"2019-01-17T12:59:13.321Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-19T10:49:08.163Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

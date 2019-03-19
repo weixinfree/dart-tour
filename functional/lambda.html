@@ -1,0 +1,740 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>lambda 表达式 · dart语言特性巡览</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="王伟">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="callable_object.html" />
+    
+    
+    <link rel="prev" href="first_class_function.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Dart语言简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    函数式编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="var_final_const.html">
+            
+                <a href="var_final_const.html">
+            
+                    
+                    不可变性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="first_class_function.html">
+            
+                <a href="first_class_function.html">
+            
+                    
+                    一等函数和高阶函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="lambda.html">
+            
+                <a href="lambda.html">
+            
+                    
+                    lambda 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="callable_object.html">
+            
+                <a href="callable_object.html">
+            
+                    
+                    callable class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="lexical_scope.html">
+            
+                <a href="lexical_scope.html">
+            
+                    
+                    词法作用域,作用域链和闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="iterator.html">
+            
+                <a href="iterator.html">
+            
+                    
+                    iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="generator.html">
+            
+                <a href="generator.html">
+            
+                    
+                    generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../oop/">
+            
+                <a href="../oop/">
+            
+                    
+                    面向对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../oop/methodMissing.html">
+            
+                <a href="../oop/methodMissing.html">
+            
+                    
+                    method missing 黑魔法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../oop/property.html">
+            
+                <a href="../oop/property.html">
+            
+                    
+                    Property
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../oop/class.html">
+            
+                <a href="../oop/class.html">
+            
+                    
+                    class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../oop/interface.html">
+            
+                <a href="../oop/interface.html">
+            
+                    
+                    interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../oop/mixin.html">
+            
+                <a href="../oop/mixin.html">
+            
+                    
+                    mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../oop/abstract_class.html">
+            
+                <a href="../oop/abstract_class.html">
+            
+                    
+                    抽象类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../oop/dynamic.html">
+            
+                <a href="../oop/dynamic.html">
+            
+                    
+                    dynamic类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../oop/generic.html">
+            
+                <a href="../oop/generic.html">
+            
+                    
+                    范型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../oop/constructor.html">
+            
+                <a href="../oop/constructor.html">
+            
+                    
+                    复杂的构造器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../async/">
+            
+                <a href="../async/">
+            
+                    
+                    异步编程和并发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../async/stream.html">
+            
+                <a href="../async/stream.html">
+            
+                    
+                    stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../async/async_await.html">
+            
+                <a href="../async/async_await.html">
+            
+                    
+                    async/sync 语法糖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../async/event_loop.html">
+            
+                <a href="../async/event_loop.html">
+            
+                    
+                    eventloop 和 GUI编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../async/isolates.html">
+            
+                <a href="../async/isolates.html">
+            
+                    
+                    actor style 并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../engineering/">
+            
+                <a href="../engineering/">
+            
+                    
+                    工程实践
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../engineering/fmt.html">
+            
+                <a href="../engineering/fmt.html">
+            
+                    
+                    fmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../engineering/pub.html">
+            
+                <a href="../engineering/pub.html">
+            
+                    
+                    依赖管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../engineering/style.html">
+            
+                <a href="../engineering/style.html">
+            
+                    
+                    官方style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../engineering/test.html">
+            
+                <a href="../engineering/test.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../engineering/cli.html">
+            
+                <a href="../engineering/cli.html">
+            
+                    
+                    缺少的cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../others/">
+            
+                <a href="../others/">
+            
+                    
+                    后记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../others/metadata.html">
+            
+                <a href="../others/metadata.html">
+            
+                    
+                    metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../others/typedefs.html">
+            
+                <a href="../others/typedefs.html">
+            
+                    
+                    typedefs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../others/visibility.html">
+            
+                <a href="../others/visibility.html">
+            
+                    
+                    独特的可见性规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../others/lib.html">
+            
+                <a href="../others/lib.html">
+            
+                    
+                    库的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../others/null.html">
+            
+                <a href="../others/null.html">
+            
+                    
+                    null 处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >lambda 表达式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h4 id="&#x533F;&#x540D;&#x51FD;&#x6570;">&#x533F;&#x540D;&#x51FD;&#x6570;</h4>
+<p>&#x652F;&#x6301;&#x4E00;&#x7B49;&#x51FD;&#x6570;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x4F1A;&#x987A;&#x8DEF;&#x652F;&#x6301;&#x53E6;&#x4E00;&#x4E2A;&#x7279;&#x6027;&#xFF1A;&#x533F;&#x540D;&#x51FD;&#x6570;</p>
+<p>dart&#x4E2D;&#x652F;&#x6301;&#x4E24;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x533F;&#x540D;&#x51FD;&#x6570;</p>
+<pre><code class="lang-dart">main() {
+  <span class="hljs-keyword">final</span> li = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+
+  li.sort((lhr, rhr) {
+    <span class="hljs-keyword">return</span> rhr - lhr;
+  });
+  <span class="hljs-built_in">print</span>(li); <span class="hljs-comment">// [3, 2, 1]</span>
+
+  li.sort((lhr, rhr) =&gt; lhr - rhr);
+  <span class="hljs-built_in">print</span>(li); <span class="hljs-comment">// [1, 2, 3]</span>
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x7BAD;&#x5934;&#x5F62;&#x5F0F;&#x7684;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x652F;&#x6301;&#x5355;&#x884C;&#x8BED;&#x53E5;&#x3002;</p>
+<h4 id="lambda&#x51FD;&#x6570;&#xFF0C;lambda&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x533F;&#x540D;&#x51FD;&#x6570;-&#x50BB;&#x50BB;&#x5206;&#x4E0D;&#x6E05;&#xFF1F;&#x1F635;">lambda&#x51FD;&#x6570;&#xFF0C;lambda&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x533F;&#x540D;&#x51FD;&#x6570; &#x50BB;&#x50BB;&#x5206;&#x4E0D;&#x6E05;&#xFF1F;&#x1F635;</h4>
+<p>lambda&#x51FD;&#x6570;&#xFF0C;lambda&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x533F;&#x540D;&#x51FD;&#x6570;&#x5176;&#x5B9E;&#x662F;&#x4E00;&#x56DE;&#x4E8B;&#x3002;&#x8FD9;&#x4E2A;&#x6897;&#x7684;&#x6765;&#x6E90;&#x5E94;&#x8BE5;&#x662F;&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x7684;&#x4E8C;&#x59CB;&#x7956;Lisp&#xFF08;&#x59CB;&#x7956;&#x662F;Fortran&#xFF09;&#x3002;</p>
+<p>&#x5728;lisp&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x51FD;&#x6570;&#x90FD;&#x662F;&#x901A;&#x8FC7;lambda&#x8868;&#x8FBE;&#x5F0F;&#x6765;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;lambda&#x8868;&#x8FBE;&#x5F0F;&#x751F;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6570;&#x53EA;&#x662F;&#x7ED9;lambda&#x8868;&#x8FBE;&#x5F0F;&#x7ED1;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#x800C;&#x5DF2;&#x3002;</p>
+<p>&#x5728;scheme&#x4E2D;&#x4E0B;&#x9762;&#x4E24;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> add6 (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (x)  (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> x <span class="hljs-number">6</span>)))
+<span class="hljs-comment">; &#x8FD9;&#x4E2A;&#x662F;&#x5B9A;&#x4E49;&#x547D;&#x540D;&#x51FD;&#x6570;&#x7684;&#x7B80;&#x5316;&#x7248;&#x672C;</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">add6</span> x) (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> x <span class="hljs-number">6</span>))
+</code></pre>
+<h4 id="&#x95ED;&#x5305;">&#x95ED;&#x5305;</h4>
+<p>&#x533F;&#x540D;&#x51FD;&#x6570;&#x548C;&#x95ED;&#x5305;&#x6709;&#x7740;&#x5343;&#x4E1D;&#x4E07;&#x7F15;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x6B32;&#x77E5;&#x540E;&#x4E8B;&#xFF0C;&#x8BF7;&#x770B;&#x540E;&#x7EED;&#x7AE0;&#x8282;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="first_class_function.html" class="navigation navigation-prev " aria-label="Previous page: 一等函数和高阶函数">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="callable_object.html" class="navigation navigation-next " aria-label="Next page: callable class">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"lambda 表达式","level":"1.2.3","depth":2,"next":{"title":"callable class","level":"1.2.4","depth":2,"path":"functional/callable_object.md","ref":"./functional/callable_object.md","articles":[]},"previous":{"title":"一等函数和高阶函数","level":"1.2.2","depth":2,"path":"functional/first_class_function.md","ref":"./functional/first_class_function.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"王伟","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"dart语言特性巡览","gitbook":"*"},"file":{"path":"functional/lambda.md","mtime":"2019-01-17T12:59:18.571Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-19T10:49:08.163Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
